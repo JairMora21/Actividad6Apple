@@ -7,24 +7,38 @@
 
 import UIKit
 
+var operacion = Double()
+let diametro = Double()
+
+
 class ViewControllerCirculo: UIViewController {
 
+    
+    @IBOutlet weak var Result: UILabel!
+    @IBOutlet weak var N1: UITextField!
+    
+    
+    @IBAction func Calcular(_ sender: Any) {
+        
+        let diametro = Double(N1.text!)
+        let radio = diametro!/2
+        
+        operacion = (3.1416) * (radio*radio)
+        
+        let respuesta = String(format: "%.2f", arguments:[operacion])
+        
+        Result.text = (respuesta)
+    
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
     @IBAction func irVista1(_ sender: Any) {
         dismiss(animated: true, completion: nil)

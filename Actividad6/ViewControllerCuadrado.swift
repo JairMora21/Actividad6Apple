@@ -7,24 +7,36 @@
 
 import UIKit
 
+var mathcal = Double()
+let inputnumber1 = Double()
+
 class ViewControllerCuadrado: UIViewController {
 
+    @IBOutlet weak var Result: UILabel!
+    @IBOutlet weak var Input1: UITextField!
+    
+    
+    @IBAction func Calculate(_ sender: Any) {
+       
+        let inputnumber1 = Double(Input1.text!)
+        
+        mathcal = inputnumber1! * inputnumber1!
+        
+        let answer = String (format: "%.2f", arguments:[mathcal])
+        
+        Result.text = (answer)
+        
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
     @IBAction func irVistaUno(_ sender: Any) {
         dismiss(animated: true, completion: nil)
